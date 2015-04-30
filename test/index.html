@@ -7,18 +7,21 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <meta name="google-signin-clientid" content="1005569758514-54vhondm4ub4oi3b8phh53emf5in24te.apps.googleusercontent.com" />
+    <meta name="google-signin-clientid" content="1005569758514-8uj99o1jg0v6lpfru758b998rt9bp38h.apps.googleusercontent.com" />
     <meta name="google-signin-cookiepolicy" content="single_host_origin" />
     <meta name="google-signin-approvalprompt" content="auto" />
-    <meta name="google-signin-callback" content="signinCallback" />
+    <meta name="google-signin-callback" content="GooglePlayGamesHandleAuth" />
     <meta name="google-signin-scope" content="https://www.googleapis.com/auth/games" />
 
-    <link rel="stylesheet" href="../src/css/main.css">
+    <link rel="stylesheet" href="../src/css/main.css"/>
 </head>
 <body>
 
 <span id="signinButton"><span class="g-signin"></span></span>
 
-<script src="../src/js/main.js"></script>
+<script src="../src/js/lib/require.js"></script>
+<script src="../src/js/lib/underscore.js"></script>
+<script src="../src/js/app/api.js"></script>
+<script src="https://apis.google.com/js/client:platform.js"></script>
 </body>
 </html>
