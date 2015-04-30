@@ -71,70 +71,80 @@ can be found on the [Google Play Games developer website](https://developers.goo
 
 Here is a list of the available API endpoints linked to their documentation:
 
-[GoogleGamesApi.achievements.definitions](https://developers.google.com/games/services/web/api/achievementDefinitions/list)
+Achievements
+* [GoogleGamesApi.achievements.definitions](https://developers.google.com/games/services/web/api/achievementDefinitions/list)
+* [GoogleGamesApi.achievements.increment](https://developers.google.com/games/services/web/api/achievements/increment)
+* [GoogleGamesApi.achievements.instances](https://developers.google.com/games/services/web/api/achievements/list)
+* [GoogleGamesApi.achievements.reveal](https://developers.google.com/games/services/web/api/achievements/reveal)
+* [GoogleGamesApi.achievements.setStepsAtLeast](https://developers.google.com/games/services/web/api/achievements/setStepsAtLeast)
+* [GoogleGamesApi.achievements.unlock](https://developers.google.com/games/services/web/api/achievements/unlock)
+* [GoogleGamesApi.achievements.updateMultiple](https://developers.google.com/games/services/web/api/achievements/updateMultiple)
 
-[GoogleGamesApi.achievements.increment](https://developers.google.com/games/services/web/api/achievements/increment)
-[GoogleGamesApi.achievements.instances](https://developers.google.com/games/services/web/api/achievements/list)
-[GoogleGamesApi.achievements.reveal](https://developers.google.com/games/services/web/api/achievements/reveal)
-[GoogleGamesApi.achievements.setStepsAtLeast](https://developers.google.com/games/services/web/api/achievements/setStepsAtLeast)
-[GoogleGamesApi.achievements.unlock](https://developers.google.com/games/services/web/api/achievements/unlock)
-[GoogleGamesApi.achievements.updateMultiple](https://developers.google.com/games/services/web/api/achievements/updateMultiple)
+Applications
+* [GoogleGamesApi.applications.get](https://developers.google.com/games/services/web/api/applications/get)
+* [GoogleGamesApi.applications.played](https://developers.google.com/games/services/web/api/applications/played)
 
-[GoogleGamesApi.applications.get](https://developers.google.com/games/services/web/api/applications/get)
-[GoogleGamesApi.applications.played](https://developers.google.com/games/services/web/api/applications/played)
+Events
+* [GoogleGamesApi.events.definitions](https://developers.google.com/games/services/web/api/events/listDefinitions)
+* [GoogleGamesApi.events.instances](https://developers.google.com/games/services/web/api/events/listByPlayer)
+* [GoogleGamesApi.events.record](https://developers.google.com/games/services/web/api/events/record)
 
-[GoogleGamesApi.events.definitions](https://developers.google.com/games/services/web/api/events/listDefinitions)
-[GoogleGamesApi.events.instances](https://developers.google.com/games/services/web/api/events/listByPlayer)
-[GoogleGamesApi.events.record](https://developers.google.com/games/services/web/api/events/record)
+Leaderboards
+* [GoogleGamesApi.leaderboards.get](https://developers.google.com/games/services/web/api/leaderboards/get)
+* [GoogleGamesApi.leaderboards.list](https://developers.google.com/games/services/web/api/leaderboards/list)
 
-[GoogleGamesApi.leaderboards.get](https://developers.google.com/games/services/web/api/leaderboards/get)
-[GoogleGamesApi.leaderboards.list](https://developers.google.com/games/services/web/api/leaderboards/list)
+MetaGame
+* [GoogleGamesApi.metagame.config](https://developers.google.com/games/services/web/api/metagame/getMetagameConfig)
+* [GoogleGamesApi.metagame.playerCategories](https://developers.google.com/games/services/web/api/metagame/listCategoriesByPlayer)
 
-[GoogleGamesApi.metagame.config](https://developers.google.com/games/services/web/api/metagame/getMetagameConfig)
-[GoogleGamesApi.metagame.playerCategories](https://developers.google.com/games/services/web/api/metagame/listCategoriesByPlayer)
+Players
+* [GoogleGamesApi.players.get](https://developers.google.com/games/services/web/api/players/get)
+* [GoogleGamesApi.players.list](https://developers.google.com/games/services/web/api/players/list)
 
-[GoogleGamesApi.players.get](https://developers.google.com/games/services/web/api/players/get)
-[GoogleGamesApi.players.list](https://developers.google.com/games/services/web/api/players/list)
+Push Tokens
+* [GoogleGamesApi.pushtokens.remove](https://developers.google.com/games/services/web/api/pushtokens/remove)
+* [GoogleGamesApi.pushtokens.update](https://developers.google.com/games/services/web/api/pushtokens/update)
 
-[GoogleGamesApi.pushtokens.remove](https://developers.google.com/games/services/web/api/pushtokens/remove)
-[GoogleGamesApi.pushtokens.update](https://developers.google.com/games/services/web/api/pushtokens/update)
+Quests
+* [GoogleGamesApi.quest.milestone.claim](https://developers.google.com/games/services/web/api/questMilestones/claim)
+* [GoogleGamesApi.quest.accept](https://developers.google.com/games/services/web/api/quests/accept)
+* [GoogleGamesApi.quest.list](https://developers.google.com/games/services/web/api/quests/list)
 
-[GoogleGamesApi.quest.milestone.claim](https://developers.google.com/games/services/web/api/questMilestones/claim)
-[GoogleGamesApi.quest.accept](https://developers.google.com/games/services/web/api/quests/accept)
-[GoogleGamesApi.quest.list](https://developers.google.com/games/services/web/api/quests/list)
+Rooms
+* [GoogleGamesApi.rooms.create](https://developers.google.com/games/services/web/api/rooms/create)
+* [GoogleGamesApi.rooms.decline](https://developers.google.com/games/services/web/api/rooms/decline)
+* [GoogleGamesApi.rooms.dismiss](https://developers.google.com/games/services/web/api/rooms/dismiss)
+* [GoogleGamesApi.rooms.get](https://developers.google.com/games/services/web/api/rooms/get)
+* [GoogleGamesApi.rooms.join](https://developers.google.com/games/services/web/api/rooms/join)
+* [GoogleGamesApi.rooms.leave](https://developers.google.com/games/services/web/api/rooms/leave)
+* [GoogleGamesApi.rooms.list](https://developers.google.com/games/services/web/api/rooms/list)
+* [GoogleGamesApi.rooms.reportStatus](https://developers.google.com/games/services/web/api/rooms/reportStatus)
 
-[GoogleGamesApi.rooms.create](https://developers.google.com/games/services/web/api/rooms/create)
-[GoogleGamesApi.rooms.decline](https://developers.google.com/games/services/web/api/rooms/decline)
-[GoogleGamesApi.rooms.dismiss](https://developers.google.com/games/services/web/api/rooms/dismiss)
-[GoogleGamesApi.rooms.get](https://developers.google.com/games/services/web/api/rooms/get)
-[GoogleGamesApi.rooms.join](https://developers.google.com/games/services/web/api/rooms/join)
-[GoogleGamesApi.rooms.leave](https://developers.google.com/games/services/web/api/rooms/leave)
-[GoogleGamesApi.rooms.list](https://developers.google.com/games/services/web/api/rooms/list)
-[GoogleGamesApi.rooms.reportStatus](https://developers.google.com/games/services/web/api/rooms/reportStatus)
+Scores
+* [GoogleGamesApi.scores.get](https://developers.google.com/games/services/web/api/scores/get)
+* [GoogleGamesApi.scores.list](https://developers.google.com/games/services/web/api/scores/list)
+* [GoogleGamesApi.scores.listWindow](https://developers.google.com/games/services/web/api/scores/listWindow)
+* [GoogleGamesApi.scores.submit](https://developers.google.com/games/services/web/api/scores/submit)
+* [GoogleGamesApi.scores.submitMultiple](https://developers.google.com/games/services/web/api/scores/submitMultiple)
 
-[GoogleGamesApi.scores.get](https://developers.google.com/games/services/web/api/scores/get)
-[GoogleGamesApi.scores.list](https://developers.google.com/games/services/web/api/scores/list)
-[GoogleGamesApi.scores.listWindow](https://developers.google.com/games/services/web/api/scores/listWindow)
-[GoogleGamesApi.scores.submit](https://developers.google.com/games/services/web/api/scores/submit)
-[GoogleGamesApi.scores.submitMultiple](https://developers.google.com/games/services/web/api/scores/submitMultiple)
+Snapshots
+* [GoogleGamesApi.snapshots.get](https://developers.google.com/games/services/web/api/snapshots/get)
+* [GoogleGamesApi.snapshots.list](https://developers.google.com/games/services/web/api/snapshots/list)
 
-[GoogleGamesApi.snapshots.get](https://developers.google.com/games/services/web/api/snapshots/get)
-[GoogleGamesApi.snapshots.list](https://developers.google.com/games/services/web/api/snapshots/list)
-
-TBMP = Turn-based Multiplayer
-[GoogleGamesApi.tbmp.cancel](https://developers.google.com/games/services/web/api/turnBasedMatches/cancel)
-[GoogleGamesApi.tbmp.create](https://developers.google.com/games/services/web/api/turnBasedMatches/create)
-[GoogleGamesApi.tbmp.decline](https://developers.google.com/games/services/web/api/turnBasedMatches/decline)
-[GoogleGamesApi.tbmp.dismiss](https://developers.google.com/games/services/web/api/turnBasedMatches/dismiss)
-[GoogleGamesApi.tbmp.finish](https://developers.google.com/games/services/web/api/turnBasedMatches/finish)
-[GoogleGamesApi.tbmp.get](https://developers.google.com/games/services/web/api/turnBasedMatches/get)
-[GoogleGamesApi.tbmp.join](https://developers.google.com/games/services/web/api/turnBasedMatches/join)
-[GoogleGamesApi.tbmp.leave](https://developers.google.com/games/services/web/api/turnBasedMatches/leave)
-[GoogleGamesApi.tbmp.leaveTurn](https://developers.google.com/games/services/web/api/turnBasedMatches/leaveTurn)
-[GoogleGamesApi.tbmp.list](https://developers.google.com/games/services/web/api/turnBasedMatches/list)
-[GoogleGamesApi.tbmp.rematch](https://developers.google.com/games/services/web/api/turnBasedMatches/rematch)
-[GoogleGamesApi.tbmp.sync](https://developers.google.com/games/services/web/api/turnBasedMatches/sync)
-[GoogleGamesApi.tbmp.takeTurn](https://developers.google.com/games/services/web/api/turnBasedMatches/takeTurn)
+Turn-based Multiplayer (TMBP)
+* [GoogleGamesApi.tbmp.cancel](https://developers.google.com/games/services/web/api/turnBasedMatches/cancel)
+* [GoogleGamesApi.tbmp.create](https://developers.google.com/games/services/web/api/turnBasedMatches/create)
+* [GoogleGamesApi.tbmp.decline](https://developers.google.com/games/services/web/api/turnBasedMatches/decline)
+* [GoogleGamesApi.tbmp.dismiss](https://developers.google.com/games/services/web/api/turnBasedMatches/dismiss)
+* [GoogleGamesApi.tbmp.finish](https://developers.google.com/games/services/web/api/turnBasedMatches/finish)
+* [GoogleGamesApi.tbmp.get](https://developers.google.com/games/services/web/api/turnBasedMatches/get)
+* [GoogleGamesApi.tbmp.join](https://developers.google.com/games/services/web/api/turnBasedMatches/join)
+* [GoogleGamesApi.tbmp.leave](https://developers.google.com/games/services/web/api/turnBasedMatches/leave)
+* [GoogleGamesApi.tbmp.leaveTurn](https://developers.google.com/games/services/web/api/turnBasedMatches/leaveTurn)
+* [GoogleGamesApi.tbmp.list](https://developers.google.com/games/services/web/api/turnBasedMatches/list)
+* [GoogleGamesApi.tbmp.rematch](https://developers.google.com/games/services/web/api/turnBasedMatches/rematch)
+* [GoogleGamesApi.tbmp.sync](https://developers.google.com/games/services/web/api/turnBasedMatches/sync)
+* [GoogleGamesApi.tbmp.takeTurn](https://developers.google.com/games/services/web/api/turnBasedMatches/takeTurn)
 
 Roadmap
 - [x] 0.1 - API wrapper written
