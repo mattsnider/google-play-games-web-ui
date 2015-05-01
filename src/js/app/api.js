@@ -5,7 +5,8 @@ var GoogleGamesApi = function(DEBUG) {
 
   var gapi,
       oInstance,
-      bAuth = false;
+      bAuth = false,
+      aOnAuth = [];
 
   //
   // Create some unique exceptions.
@@ -50,7 +51,7 @@ var GoogleGamesApi = function(DEBUG) {
    */
   function fnCheckGames() {
     if (!fnApiClient().games) {
-      GoogleGamesApi.games();
+      initGameApi();
     }
   }
 
@@ -65,6 +66,21 @@ var GoogleGamesApi = function(DEBUG) {
     return _.bind(function(fnCallback, oCfg) {
       return fnRunWhenReady(this, sApiEndpoint, fnCallback, oCfg);
     }, oContext);
+  }
+
+  function initGameApi(fnCallback) {
+    if (fnApiClient().games) {
+      oInstance.__bIsReady__ = true;
+    } else {
+      fnApiClient().load('games', 'v1', function(oResponse) {
+        if (fnCallback) {
+          fnCallback(oResponse);
+        }
+        fnMakeReady(oInstance);
+      });
+    }
+
+    return oInstance;
   }
 
   /**
@@ -173,7 +189,7 @@ var GoogleGamesApi = function(DEBUG) {
       update: fnCreateApi('pushtokens.update', that)
     };
 
-    that.quest = {
+    that.quests = {
       milestone: {
         claim: fnCreateApi('questMilestones.claim', that)
       },
@@ -223,45 +239,54 @@ var GoogleGamesApi = function(DEBUG) {
   }
 
   P.prototype = {
-
-    games: function(fnCallback, oCfg) {
-      if (fnApiClient().games) {
-        GoogleGamesApi.__bIsReady__ = true;
-      } else {
-        fnApiClient().load('games', 'v1', function(oResponse) {
-          if (fnCallback) {
-            fnCallback(oResponse);
-          }
-          fnMakeReady(GoogleGamesApi);
-        });
-      }
-
-      return GoogleGamesApi;
-    }
   };
 
   // TODO(msnider): All APIs need to check for authentication errors and return
   // a recoverable.
 
-  // Make the global "google-signin-callback" available.
-  window.GooglePlayGamesHandleAuth = function(authResult) {
-    if (authResult && authResult.error == null && authResult.status &&
-        authResult.status.signed_in) {
-      console.log('succeeded');
-      bAuth = true;
-    } else {
-      // Update the app to reflect a signed out user
-      // Possible error values:
-      //   "user_signed_out" - User is signed-out
-      //   "access_denied" - User denied access to your app
-      //   "immediate_failed" - Could not automatically log in the user
-      console.log('Sign-in state: ' + authResult.error);
+  // Create the root instance object.
+  oInstance = new P();
+
+  return {
+    // Make exceptions available globally.
+    ApiUnavailableException: ApiUnavailableException,
+    ApiUnauthenticatedException: ApiUnauthenticatedException,
+
+    /**
+     * Google API authentication handler.
+     *
+     * @param authResult The auth result object provided by Google.
+     */
+    authCallback: function(authResult) {
+      if (authResult && authResult.error == null && authResult.status &&
+          authResult.status.signed_in) {
+        console.log('succeeded');
+        bAuth = true;
+        _.each(aOnAuth, function(fn) {
+          fn(oInstance);
+        });
+      } else {
+        // Update the app to reflect a signed out user
+        // Possible error values:
+        //   "user_signed_out" - User is signed-out
+        //   "access_denied" - User denied access to your app
+        //   "immediate_failed" - Could not automatically log in the user
+        console.log('Sign-in state: ' + authResult.error);
+      }
+    },
+
+    /**
+     * Check if the API is authenticated yet or not and either execute fn right
+     * away or queue it up to execute after authentication.
+     *
+     * @param fn The function to execute.
+     */
+    runWhenAuthenticated: function(fn) {
+      if (bAuth) {
+        fn(oInstance);
+      } else {
+        aOnAuth.push(fn);
+      }
     }
   };
-
-  // Make exceptions available globally.
-  oInstance = new P();
-  oInstance.ApiUnavailableException = ApiUnavailableException;
-  oInstance.ApiUnauthenticatedException = ApiUnauthenticatedException;
-  return oInstance;
 }(true);

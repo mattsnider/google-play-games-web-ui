@@ -14,6 +14,8 @@ Include the following at the end of your body element:
 ```html
 <script src="{PATH_TO_JS}/underscore.js"></script>
 <script src="{PATH_TO_JS}/api.js"></script>
+&#60;!-- This is dumb, but the callback function must be directly attached to window. --&#62;
+&#60;script&#62;YOUR_JS_CALLBACK_FUNCTION = GoogleGamesApi.authCallback;&#60;/script&#62;
 <script src="https://apis.google.com/js/client:platform.js"></script>
 ```
 
