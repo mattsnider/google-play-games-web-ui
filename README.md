@@ -14,8 +14,8 @@ Include the following at the end of your body element:
 ```html
 <script src="{PATH_TO_JS}/underscore.js"></script>
 <script src="{PATH_TO_JS}/api.js"></script>
-&#60;!-- This is dumb, but the callback function must be directly attached to window. --&#62;
-&#60;script&#62;YOUR_JS_CALLBACK_FUNCTION = GoogleGamesApi.authCallback;&#60;/script&#62;
+<!-- This is dumb, but the callback function must be directly attached to window. -->;
+<script>YOUR_JS_CALLBACK_FUNCTION = GoogleGamesApi.authCallback;</script>
 <script src="https://apis.google.com/js/client:platform.js"></script>
 ```
 
@@ -23,25 +23,29 @@ Start using the API.
 
 Fetch a list of leaderboards for the game.
 ```javascript
-GoogleGamesApi.leaderboards.list(function(oResponse) {
-  // Do something with the response.
+GoogleGamesApi.runWhenAuthenticated(function(oApi) {
+  oApi.leaderboards.list(function(oResponse) {
+    // Do something with the response.
+  });
 });
 ```
 
 Load achievement definitions and instances in sequence.
 ```javascript
-var oAchievementInstanceMap = {};
-GoogleGamesApi.achievements.definitions(function(oResponse) {
-    _.each(oResponse.items, function(oAchievementDefinition) {
-      oAchievementInstanceMap[oAchievementDefinition.id] = oAchievementDefinition;
-    });
-}).achievements.instances(function(oResponse) {
-    _.each(oResponse.items, function(oAchievementInstance) {
-      var oAchievementDefinition = oAchievementInstanceMap[oAchievementInstance.id];
-      console.log('You have ' + oAchievementInstance.achievementState
-          + ' the achievement ' + oAchievementDefinition.name);
-    });
-}, {playerId: 'me'});
+GoogleGamesApi.runWhenAuthenticated(function(oApi) {
+  var oAchievementInstanceMap = {};
+  GoogleGamesApi.achievements.definitions(function(oResponse) {
+      _.each(oResponse.items, function(oAchievementDefinition) {
+        oAchievementInstanceMap[oAchievementDefinition.id] = oAchievementDefinition;
+      });
+  }).achievements.instances(function(oResponse) {
+      _.each(oResponse.items, function(oAchievementInstance) {
+        var oAchievementDefinition = oAchievementInstanceMap[oAchievementInstance.id];
+        console.log('You have ' + oAchievementInstance.achievementState
+            + ' the achievement ' + oAchievementDefinition.name);
+      });
+  }, {playerId: 'me'});
+});
 ```
 
 Dependencies

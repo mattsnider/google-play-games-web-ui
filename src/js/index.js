@@ -13,21 +13,14 @@ GoogleGamesApi.runWhenAuthenticated(function(oApi) {
     // Do something with the response.
   }, {playerId: 'me'});
 
-  var oAchievementInstanceMap = {};
-  var oPlayer;
+  var aDefinitions,
+      oPlayer;
   oApi.players.get(function(oResponse) {
     oPlayer = oResponse;
   }, {playerId: 'me'})
       .achievements.definitions(function(oResponse) {
-        _.each(oResponse.items, function(oAchievementDefinition) {
-          oAchievementInstanceMap[oAchievementDefinition.id] =
-              oAchievementDefinition;
-        });
+        aDefinitions = oResponse.items;
       }).achievements.instances(function(oResponse) {
-        _.each(oResponse.items, function(oAchievementInstance) {
-          var oAchievementDefinition = oAchievementInstanceMap[oAchievementInstance.id];
-          console.log('You have ' + oAchievementInstance.achievementState
-              + ' the achievement ' + oAchievementDefinition.name);
-        });
+        GoogleGamesApi.ui.showAchievements(aDefinitions, oResponse.items);
       }, {playerId: 'me'});
 });
